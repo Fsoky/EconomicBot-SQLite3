@@ -166,10 +166,10 @@ async def leaderboard(ctx):
 	embed = disnake.Embed(title="Топ 10 сервера")
 	counter = 0
 
-	for row in cursor.execute("SELECT name, cash FROM users WHERE guild_id = ? ORDER BY cash DESC LIMIT 10", (ctx.guild.id,)):
+	for row in cursor.execute("SELECT id, cash FROM users WHERE guild_id = ? ORDER BY cash DESC LIMIT 10", (ctx.guild.id,)):
 		counter += 1
 		embed.add_field(
-			name=f"# {counter} | `{row[0]}`",
+			name=f"# {counter} | `{bot.get_user(row[0])}`",
 			value=f"Баланс: {row[1]}",
 			inline=False
 		)
