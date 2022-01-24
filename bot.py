@@ -51,7 +51,7 @@ async def on_member_join(member):
 async def on_guild_join(guild):
 	for member in guild.members:
 		if cursor.execute("SELECT id FROM users WHERE id = ? AND guild_id = ?", (member.id, member.guild.id,)).fetchone() is None:
-			cursor.execute("INSERT INTO users VALUES (?, ?, ?, ?, ?)", (member.id, guild.id, 300, 0, 1,))
+			cursor.execute("INSERT INTO users VALUES (?, ?, ?, ?, ?)", (member.id, member.guild.id, 300, 0, 1,))
 
 	db.commit()
 
