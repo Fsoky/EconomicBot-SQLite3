@@ -10,6 +10,7 @@
 ```
 $ git clone https://github.com/Fsoky/EconomicBot-SQLite3.git
 $ cd EconomicBot-SQLite3
+$ pip install -r requirements.txt
 ```
 
 ##### .env.example
